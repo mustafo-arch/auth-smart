@@ -1,3 +1,4 @@
+// src/pages/home/home.tsx
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../auth/store/authStore';
 
@@ -13,11 +14,13 @@ export const HomePage = () => {
 
   return (
     <div className="min-h-screen w-full bg-slate-950 text-slate-100 relative overflow-hidden font-sans selection:bg-indigo-500 selection:text-white flex flex-col">
+      {/* Background effects unchanged */}
       <div className="absolute top-0 right-1/4 w-125 h-125 bg-indigo-600/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-125 h-125 bg-purple-600/15 rounded-full blur-[140px] pointer-events-none" />
 
       <header className="relative z-10 w-full bg-slate-900/40 backdrop-blur-xl border-b border-white/10 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
+          {/* Logo section unchanged */}
           <div className="w-10 h-10 rounded-xl bg-linear-to-tr from-indigo-500 via-purple-500 to-pink-500 p-0.5 shadow-md shadow-indigo-500/20">
             <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
               <svg className="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -26,39 +29,52 @@ export const HomePage = () => {
             </div>
           </div>
           <h1 className="text-xl font-bold bg-clip-text text-transparent bg-linear-to-r from-white via-slate-200 to-slate-400">
-            Home Sahifasi
+            Asosiy Panel
           </h1>
         </div>
 
-        <button
-          onClick={handleLogout}
-          className="hidden sm:inline-flex cursor-pointer items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium text-rose-300 bg-rose-500/10 border border-rose-500/20 hover:bg-rose-500/20 hover:border-rose-500/30 active:scale-95 transition-all duration-200"
-        >
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-          </svg>
-          <span>Chiqish</span>
-        </button>
+        <div className="flex items-center gap-3">
+          {/* YANGI: Parolni o'zgartirish tugmasi */}
+          <button
+            onClick={() => navigate('/home/change-password')}
+            className="hidden sm:inline-flex cursor-pointer items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 hover:bg-indigo-500/20 hover:border-indigo-500/30 active:scale-95 transition-all duration-200"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+            </svg>
+            <span>Parolni o'zgartirish</span>
+          </button>
+
+          <button
+            onClick={handleLogout}
+            className="hidden sm:inline-flex cursor-pointer items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium text-rose-300 bg-rose-500/10 border border-rose-500/20 hover:bg-rose-500/20 hover:border-rose-500/30 active:scale-95 transition-all duration-200"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            <span>Chiqish</span>
+          </button>
+        </div>
       </header>
 
+      {/* Main content unchanged */}
       <main className="relative z-10 flex-1 max-w-4xl w-full mx-auto p-6 sm:p-10 flex flex-col justify-center">
         <div className="p-8 sm:p-10 rounded-3xl bg-slate-900/60 backdrop-blur-2xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] transition-all">
-          
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-8 border-b border-slate-800">
             <div className="space-y-1">
-              <span className="text-xs font-semibold uppercase tracking-wider text-indigo-400">Asosiy Panel</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-indigo-400">Foydalanuvchi Profili</span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
                 Xush kelibsiz, {user?.phone}!
               </h2>
             </div>
-
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm font-medium self-start sm:self-center">
               <span className="w-2 h-2 rounded-full bg-indigo-400 animate-ping" />
-              <span>Sizning rolingiz: <strong className="text-white uppercase tracking-wider ml-1">{user?.role}</strong></span>
+              <span>Rol: <strong className="text-white uppercase tracking-wider ml-1">{user?.role}</strong></span>
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+            {/* User info cards unchanged */}
             <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/50 flex items-center gap-4">
               <div className="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-indigo-400 border border-slate-700">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -78,23 +94,11 @@ export const HomePage = () => {
                 </svg>
               </div>
               <div>
-                <p className="text-xs text-slate-400 uppercase font-medium">Foydalanuvchi Rolining Darajasi</p>
-                <p className="text-base font-semibold text-white mt-0.5 capitalize">{user?.role}</p>
+                <p className="text-xs text-slate-400 uppercase font-medium">Xavfsizlik Holati</p>
+                <p className="text-base font-semibold text-green-400 mt-0.5">Faol</p>
               </div>
             </div>
           </div>
-
-          <div className="mt-8 pt-6 border-t border-slate-800/80 flex justify-end">
-            <button 
-              onClick={handleLogout}
-              className="w-full sm:w-auto px-6 py-3.5 rounded-full cursor-pointer text-white font-semibold bg-linear-to-r from-rose-600 via-red-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 shadow-lg shadow-rose-600/25 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2 group"
-            >
-              <svg className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-              </svg>
-            </button>
-          </div>
-
         </div>
       </main>
     </div>

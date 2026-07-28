@@ -37,4 +37,14 @@ export const authApi = {
     });
     return data;
   },
+
+
+    // Yangi qo'shilgan metod
+  changePassword: async (currentPassword: string, newPassword: string) => {
+    const { data } = await api.post<{ message: string }>('/auth/change-password', {
+      currentPassword,
+      newPassword,
+    });
+    return data;
+  },
 };

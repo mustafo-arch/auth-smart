@@ -1,6 +1,6 @@
 // src/App.tsx
 import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthStore } from './auth/store/authStore';
 import { AuthGuard } from './auth/guards/authGuard';
 import { LoginPage } from './auth/pages/LoginPage';
@@ -8,6 +8,7 @@ import { LoginPage } from './auth/pages/LoginPage';
 import { HomePage } from './pages/home/home';
 import { ForgotPasswordPage } from './auth/pages/ForgotPassword';
 import { ResetPasswordPage } from './auth/pages/ResetPassword';
+import { ChangePasswordPage } from './pages/home/ChangePassword';
 
 function App() {
   const initializeAuth = useAuthStore((s) => s.initializeAuth);
@@ -54,6 +55,7 @@ function App() {
         <Route path="/reset-password" element={<ResetPasswordPage />} />
         <Route element={<AuthGuard />}>
           <Route path="/home" element={<HomePage />} />
+            <Route path="/home/change-password" element={<ChangePasswordPage />} />
         </Route>
       </Routes>
   );
