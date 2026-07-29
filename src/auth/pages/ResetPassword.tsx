@@ -69,14 +69,12 @@ export const ResetPasswordPage = () => {
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-slate-950 relative overflow-hidden font-sans selection:bg-indigo-500 selection:text-white">
-      {/* Background effects */}
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-purple-600/30 rounded-full blur-3xl animate-pulse pointer-events-none" />
       <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-indigo-600/30 rounded-full blur-3xl animate-pulse delay-1000 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-md p-8 sm:p-10 mx-4 rounded-3xl bg-slate-900/60 backdrop-blur-2xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.6)] transition-all duration-300">
         
-        {/* Header */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-tr from-indigo-500 via-purple-500 to-pink-500 p-0.5 shadow-lg shadow-indigo-500/30 mb-4">
             <div className="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center">
@@ -94,7 +92,6 @@ export const ResetPasswordPage = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
-          {/* Token input */}
           <div className="space-y-1.5">
             <label className="text-xs font-medium uppercase tracking-wider text-slate-300 ml-1">
               Tiklash kodi
@@ -116,7 +113,6 @@ export const ResetPasswordPage = () => {
             </div>
           </div>
 
-          {/* New Password */}
           <div className="space-y-1.5">
             <label className="text-xs font-medium uppercase tracking-wider text-slate-300 ml-1">
               Yangi parol
@@ -154,7 +150,6 @@ export const ResetPasswordPage = () => {
             </div>
           </div>
 
-          {/* Confirm Password */}
           <div className="space-y-1.5">
             <label className="text-xs font-medium uppercase tracking-wider text-slate-300 ml-1">
               Parolni tasdiqlang
@@ -176,36 +171,7 @@ export const ResetPasswordPage = () => {
             </div>
           </div>
 
-          {/* Password requirements */}
-          <div className="bg-slate-800/40 rounded-xl p-4 space-y-2 text-xs text-slate-400">
-            <p className="font-medium text-slate-300 mb-2">Parol talablari:</p>
-            <div className={`flex items-center gap-2 ${newPassword.length >= 8 ? 'text-green-400' : ''}`}>
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={newPassword.length >= 8 ? "M5 13l4 4L19 7" : "M6 18L18 6M6 6l12 12"} />
-              </svg>
-              <span>Kamida 8 ta belgi</span>
-            </div>
-            <div className={`flex items-center gap-2 ${/[A-Z]/.test(newPassword) ? 'text-green-400' : ''}`}>
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={/[A-Z]/.test(newPassword) ? "M5 13l4 4L19 7" : "M6 18L18 6M6 6l12 12"} />
-              </svg>
-              <span>Kamida bitta katta harf</span>
-            </div>
-            <div className={`flex items-center gap-2 ${/[a-z]/.test(newPassword) ? 'text-green-400' : ''}`}>
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={/[a-z]/.test(newPassword) ? "M5 13l4 4L19 7" : "M6 18L18 6M6 6l12 12"} />
-              </svg>
-              <span>Kamida bitta kichik harf</span>
-            </div>
-            <div className={`flex items-center gap-2 ${/[0-9]/.test(newPassword) ? 'text-green-400' : ''}`}>
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={/[0-9]/.test(newPassword) ? "M5 13l4 4L19 7" : "M6 18L18 6M6 6l12 12"} />
-              </svg>
-              <span>Kamida bitta raqam</span>
-            </div>
-          </div>
 
-          {/* Error message */}
           {error && (
             <div className="bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 rounded-xl text-sm flex items-start gap-2">
               <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -215,7 +181,6 @@ export const ResetPasswordPage = () => {
             </div>
           )}
 
-          {/* Success message */}
           {success && (
             <div className="bg-green-500/10 border border-green-500/30 text-green-400 px-4 py-3 rounded-xl text-sm flex items-start gap-2">
               <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

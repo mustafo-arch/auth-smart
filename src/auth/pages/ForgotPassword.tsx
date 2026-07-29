@@ -1,4 +1,3 @@
-// src/auth/pages/ForgotPasswordPage.tsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authApi } from '../api/authApi';
@@ -6,12 +5,9 @@ import { authApi } from '../api/authApi';
 export const ForgotPasswordPage = () => {
   const [phone, setPhone] = useState('+998 ');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
   const [resetToken, setResetToken] = useState('');
   const navigate = useNavigate();
 
-  // Telefon raqamni formatlash (LoginPage dan nusxa)
   const formatPhoneNumber = (value: string): string => {
     const digits = value.replace(/\D/g, '');
     
@@ -60,16 +56,12 @@ export const ForgotPasswordPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
-    setSuccess('');
     setResetToken('');
 
-    // Telefon raqamni tozalash
     const phoneDigits = '+' + phone.replace(/\D/g, '');
     
-    // Validatsiya
     if (phoneDigits.length < 13) {
-      setError('Telefon raqam noto\'g\'ri formatda');
+      alert('Telefon raqam noto\'g\'ri formatda');
       return;
     }
 
@@ -77,14 +69,13 @@ export const ForgotPasswordPage = () => {
 
     try {
       const response = await authApi.forgotPassword(phoneDigits);
-      setSuccess(response.message);
+      alert(response.message);
       
-      // Backend hozircha tokenni ham qaytaradi
       if (response.resetToken) {
         setResetToken(response.resetToken);
       }
     } catch (err: any) {
-      setError(
+      alert(
         err.response?.data?.message || 
         'Xatolik yuz berdi. Iltimos, qayta urinib ko\'ring.'
       );
@@ -101,14 +92,12 @@ export const ForgotPasswordPage = () => {
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-slate-950 relative overflow-hidden font-sans selection:bg-indigo-500 selection:text-white">
-      {/* Background effects */}
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-purple-600/30 rounded-full blur-3xl animate-pulse pointer-events-none" />
       <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-indigo-600/30 rounded-full blur-3xl animate-pulse delay-1000 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-md p-8 sm:p-10 mx-4 rounded-3xl bg-slate-900/60 backdrop-blur-2xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.6)] transition-all duration-300">
         
-        {/* Header */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-tr from-indigo-500 via-purple-500 to-pink-500 p-0.5 shadow-lg shadow-indigo-500/30 mb-4">
             <div className="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center">
@@ -147,27 +136,6 @@ export const ForgotPasswordPage = () => {
             </div>
           </div>
 
-          {/* Error message */}
-          {error && (
-            <div className="bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 rounded-xl text-sm flex items-start gap-2">
-              <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>{error}</span>
-            </div>
-          )}
-
-          {/* Success message */}
-          {success && (
-            <div className="bg-green-500/10 border border-green-500/30 text-green-400 px-4 py-3 rounded-xl text-sm flex items-start gap-2">
-              <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>{success}</span>
-            </div>
-          )}
-
-          {/* Reset Token display */}
           {resetToken && (
             <div className="bg-blue-500/10 border border-blue-500/30 text-blue-400 px-4 py-3 rounded-xl text-sm">
               <p className="font-semibold mb-2 flex items-center gap-2">

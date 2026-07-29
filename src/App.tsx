@@ -1,4 +1,3 @@
-// src/App.tsx
 import { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthStore } from './auth/store/authStore';

@@ -1,5 +1,3 @@
-// src/auth/api/authApi.ts (mavjud faylga qo'shing)
-
 import api from "../../api/axiosApi";
 import type { AuthResponse } from "../types/type";
 
@@ -22,7 +20,6 @@ export const authApi = {
     await api.post('/auth/logout');
   },
 
-  // Yangi metodlar
   forgotPassword: async (phone: string) => {
     const { data } = await api.post<{ message: string; resetToken?: string }>('/auth/forgot-password', {
       phone,
@@ -38,8 +35,6 @@ export const authApi = {
     return data;
   },
 
-
-    // Yangi qo'shilgan metod
   changePassword: async (currentPassword: string, newPassword: string) => {
     const { data } = await api.post<{ message: string }>('/auth/change-password', {
       currentPassword,

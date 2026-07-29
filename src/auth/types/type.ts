@@ -15,9 +15,6 @@ export interface RefreshResponse {
   accessToken: string;
 }
 
-
-// src/auth/types/type.ts
-
 export interface ChangePasswordPayload {
   currentPassword: string;
   newPassword: string;

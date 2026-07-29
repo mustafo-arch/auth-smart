@@ -1,4 +1,3 @@
-// src/pages/home/home.tsx
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../auth/store/authStore';
 
@@ -14,13 +13,11 @@ export const HomePage = () => {
 
   return (
     <div className="min-h-screen w-full bg-slate-950 text-slate-100 relative overflow-hidden font-sans selection:bg-indigo-500 selection:text-white flex flex-col">
-      {/* Background effects unchanged */}
       <div className="absolute top-0 right-1/4 w-125 h-125 bg-indigo-600/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-125 h-125 bg-purple-600/15 rounded-full blur-[140px] pointer-events-none" />
 
       <header className="relative z-10 w-full bg-slate-900/40 backdrop-blur-xl border-b border-white/10 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          {/* Logo section unchanged */}
           <div className="w-10 h-10 rounded-xl bg-linear-to-tr from-indigo-500 via-purple-500 to-pink-500 p-0.5 shadow-md shadow-indigo-500/20">
             <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
               <svg className="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -34,7 +31,6 @@ export const HomePage = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          {/* YANGI: Parolni o'zgartirish tugmasi */}
           <button
             onClick={() => navigate('/home/change-password')}
             className="hidden sm:inline-flex cursor-pointer items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 hover:bg-indigo-500/20 hover:border-indigo-500/30 active:scale-95 transition-all duration-200"
@@ -57,7 +53,6 @@ export const HomePage = () => {
         </div>
       </header>
 
-      {/* Main content unchanged */}
       <main className="relative z-10 flex-1 max-w-4xl w-full mx-auto p-6 sm:p-10 flex flex-col justify-center">
         <div className="p-8 sm:p-10 rounded-3xl bg-slate-900/60 backdrop-blur-2xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] transition-all">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-8 border-b border-slate-800">
@@ -74,7 +69,6 @@ export const HomePage = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-            {/* User info cards unchanged */}
             <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/50 flex items-center gap-4">
               <div className="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-indigo-400 border border-slate-700">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

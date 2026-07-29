@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { authApi } from '../../auth/api/authApi';
 import { useAuthStore } from '../../auth/store/authStore';
 
-// Ikonkalar uchun komponentlar (kodni toza saqlash uchun)
 const EyeIcon = () => (
   <svg className="w-5 h-5 text-slate-400 hover:text-indigo-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -27,7 +26,6 @@ export const ChangePasswordPage = () => {
     confirmPassword: '',
   });
 
-  // Har bir input uchun alohida visibility state
   const [visibility, setVisibility] = useState({
     current: false,
     new: false,
@@ -70,7 +68,6 @@ export const ChangePasswordPage = () => {
     }
   };
 
-  // Input maydonini qayta ishlatish uchun helper funksiya
   const renderPasswordField = (
     label: string, 
     field: keyof typeof formData, 
